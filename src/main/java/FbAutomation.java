@@ -21,16 +21,18 @@ public class FbAutomation {
     public WebDriver getDriver(){
         return driver;
     }
+    //get login details in text file
     public void loginDetails(){
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\94784\\Desktop\\QA Assignment\\UserLogin.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("UserLogin.txt"));
             this.userName = reader.readLine();
             this.Password = reader.readLine();
             System.out.println(reader.readLine());
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("File not found or other IO error");
         }
-
     }
     //Login FB
     public void LoginFb() {
